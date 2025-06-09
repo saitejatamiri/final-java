@@ -23,7 +23,7 @@ kind: Service
 metadata:
   name: java-sample-app
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: java-sample-app
   ports:
