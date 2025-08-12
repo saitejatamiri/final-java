@@ -42,7 +42,7 @@ pipeline:
                       log:
                         level: info
                       args:
-                        cli: "--report-format=json --report-path=gitleaks-report.json --verbose"
+                        cli: "--report-format=json --report-path=/harness/gitleaks-report.json"
               - step:
                   type: Run
                   name: mvn_build
