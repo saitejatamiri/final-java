@@ -41,3 +41,12 @@ pipeline:
                     advanced:
                       log:
                         level: info
+              - step:
+                  type: Run
+                  name: mvn_build
+                  identifier: mvn_build
+                  spec:
+                    shell: Sh
+                    command: |-
+                      ls -a
+                      mvn clean package
