@@ -1,0 +1,45 @@
+pipeline:
+  name: CI-secureScan-Tamiri
+  identifier: CIsecureScanTamiri
+  projectIdentifier: SFTY_Training
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: GitHubTamirijavarepo
+        build: <+input>
+  stages:
+    - stage:
+        name: build-scan
+        identifier: buildscan
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+            override: false
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Gitleaks
+                  name: Gitleaks_1
+                  identifier: Gitleaks_1
+                  spec:
+                    mode: orchestration
+                    config: default
+                    target:
+                      type: repository
+                      workspace: /harness
+                      detection: auto
+                    advanced:
+                      log:
+                        level: info
+                      fail_on_severity: medium
