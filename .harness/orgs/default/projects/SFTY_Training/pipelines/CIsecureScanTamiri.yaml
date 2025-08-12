@@ -41,6 +41,8 @@ pipeline:
                     advanced:
                       log:
                         level: info
+                      args:
+                        cli: "--report-format=json --report-path=gitleaks-report.json --verbose"
               - step:
                   type: Run
                   name: mvn_build
