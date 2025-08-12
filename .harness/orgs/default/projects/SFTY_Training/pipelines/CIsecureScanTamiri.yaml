@@ -43,6 +43,11 @@ pipeline:
                         level: info
                       args:
                         cli: "--report-format=json --report-path=/harness/gitleaks-report.json"
+                  volumes:
+                    - type: Volume
+                spec:
+                  mountPath: /harness
+                  name: gitleaks-result
               - step:
                   type: Run
                   name: mvn_build
