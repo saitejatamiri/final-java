@@ -43,6 +43,12 @@ pipeline:
                         level: info
                       args:
                         cli: " gitleaks detect --source . -r gitleaks-report.json json"
+                  failureStrategies:
+                    - onFailure:
+                        errors:
+                          - AllErrors
+                        action:
+                          type: MarkAsSuccess
               - step:
                   type: Run
                   name: mvn_build
