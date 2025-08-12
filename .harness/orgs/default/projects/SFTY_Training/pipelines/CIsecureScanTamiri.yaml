@@ -37,9 +37,7 @@ pipeline:
                     config: default
                     target:
                       type: repository
-                      workspace: /harness
                       detection: auto
                     advanced:
                       log:
                         level: info
-                      fail_on_severity: medium
