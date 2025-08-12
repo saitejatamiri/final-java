@@ -1,0 +1,46 @@
+username=" saiteja"
+  password="12345"
+  tocken="jwihhvuvjrnwehfiewjrj"
+package com.example;
+
+public class App {
+
+    // ===== FAKE SECRETS FOR GITLEAKS TESTING =====
+    
+    // AWS Credentials (FAKE)
+    private static final String AWS_ACCESS_KEY = "AKIAIOSFODNN7EXAMPLE";
+    private static final String AWS_SECRET_KEY = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY";
+
+    // Database Credentials (FAKE)
+    private static final String DB_USER = "admin";
+    private static final String DB_PASSWORD = "SuperSecret123!";
+
+    // API Keys (FAKE)
+    private static final String STRIPE_API_KEY = "sk_test_51JqX2XKb2JX9pQw3Z8X1Y2Z";
+    private static final String TWILIO_AUTH_TOKEN = "SK1234567890abcdef1234567890abcdef";
+
+    // OAuth Tokens (FAKE)
+    private static final String GITHUB_OAUTH_TOKEN = "gho_ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+    private static final String SLACK_BOT_TOKEN = "xoxb-123456789012-1234567890123-abcdefghijklmnopqrstuvwxyz";
+
+    // Hardcoded Password (FAKE)
+    private static final String ADMIN_PASSWORD = "P@ssw0rd123";
+
+    public static void main(String[] args) {
+        System.out.println("Starting application...");
+        
+        // Simulate using credentials (trivial logic for testing)
+        connectToDatabase(DB_USER, DB_PASSWORD);
+        callExternalApi(STRIPE_API_KEY);
+    }
+
+    private static void connectToDatabase(String user, String password) {
+        System.out.println("Connecting to DB with user: " + user);
+        // Fake DB connection
+    }
+
+    private static void callExternalApi(String apiKey) {
+        System.out.println("Calling API with key: " + apiKey.substring(0, 8) + "...");
+        // Fake API call
+    }
+}
