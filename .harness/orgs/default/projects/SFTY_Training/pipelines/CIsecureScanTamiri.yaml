@@ -63,6 +63,13 @@ pipeline:
                           gitleaks detect --source . -r gitleaks-report.json json
               - step:
                   type: Run
+                  name: Run_3
+                  identifier: Run_3
+                  spec:
+                    shell: Sh
+                    command: la -a
+              - step:
+                  type: Run
                   name: mvn_build
                   identifier: mvn_build
                   spec:
