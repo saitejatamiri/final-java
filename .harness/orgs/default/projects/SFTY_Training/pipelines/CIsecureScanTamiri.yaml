@@ -70,7 +70,9 @@ pipeline:
                   identifier: Run_3
                   spec:
                     shell: Sh
-                    command: ls -a
+                    command: |-
+                      ls -a
+                      cat gitleaks-report.json
               - step:
                   type: Run
                   name: mvn_build
