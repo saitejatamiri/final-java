@@ -70,7 +70,7 @@ pipeline:
                   identifier: Run_3
                   spec:
                     shell: Sh
-                    command: la -a
+                    command: ls -a
               - step:
                   type: Run
                   name: mvn_build
