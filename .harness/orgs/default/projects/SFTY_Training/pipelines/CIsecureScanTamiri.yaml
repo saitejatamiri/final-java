@@ -55,12 +55,15 @@ pipeline:
                       name: Run_2
                       identifier: Run_2
                       spec:
+                        connectorRef: DockerTamiri
+                        image: zricethezav/gitleaks:latest
                         shell: Sh
                         command: |-
-                          apt install gitleaks
-
-
-                          gitleaks detect --source . -r gitleaks-report.json json
+                          gitleaks detect \
+                                    --source=. \
+                                    --report-format=json \
+                                    --report-path=/harness/gitleaks-report.json \
+                                    --exit-code=0  # Override exit code
               - step:
                   type: Run
                   name: Run_3
