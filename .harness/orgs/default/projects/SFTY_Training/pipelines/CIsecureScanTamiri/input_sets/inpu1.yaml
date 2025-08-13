@@ -1,0 +1,11 @@
+inputSet:
+  name: inpu1
+  identifier: inpu1
+  orgIdentifier: default
+  projectIdentifier: SFTY_Training
+  pipeline:
+    identifier: CIsecureScanTamiri
+    properties:
+      ci:
+        codebase:
+          build: <+input>
