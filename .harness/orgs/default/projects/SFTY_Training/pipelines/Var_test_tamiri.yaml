@@ -1,0 +1,37 @@
+pipeline:
+  name: Var_test_tamiri
+  identifier: Var_test_tamiri
+  projectIdentifier: SFTY_Training
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: GitHubTamirijavarepo
+        build: <+input>
+  stages:
+    - stage:
+        name: Var-test
+        identifier: Vartest
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+            override: false
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Run_1
+                  identifier: Run_1
+                  spec:
+                    shell: Sh
+                    command: mkdir -p "$(dirname "$HARNESS_STEP_OUTPUT")"
