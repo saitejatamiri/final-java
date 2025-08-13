@@ -94,6 +94,14 @@ pipeline:
                     command: |-
                       ls -a
                       mvn clean package
+              - step:
+                  type: Run
+                  name: Run_5
+                  identifier: Run_5
+                  spec:
+                    shell: Sh
+                    command: |-
+                      ls -a
                       echo "JAR_PATH=/harness/target/java-sample-app-<+stage.variables.JAR_VERSION>.jar" > $HARNESS_STEP_OUTPUT
     - stage:
         name: output
