@@ -94,6 +94,6 @@ pipeline:
                     command: |-
                       ls -a
                       mvn clean package
-                      JAR_PATH=$(ls target/*.jar | head -n 1)
+                      JAR_PATH=$(ls /harness/target/*.jar | head -n 1)
                         echo "JAR_PATH=$JAR_PATH" >> $HARNESS_STEP_OUTPUT
                         echo "Build complete. JAR location: $JAR_PATH"
