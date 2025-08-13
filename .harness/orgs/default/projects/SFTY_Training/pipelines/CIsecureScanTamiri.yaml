@@ -94,15 +94,6 @@ pipeline:
                     command: |-
                       ls -a
                       mvn clean package
-                      mkdir -p "$(dirname "$HARNESS_STEP_OUTPUT")"
-                        
-                        # Store JAR path (using absolute path)
-                        echo "JAR_PATH=/harness/target/java-sample-app-1.0.0.jar" > "$HARNESS_STEP_OUTPUT"
-                        
-                        # Verification and output
-                        if [ -f "/harness/target/java-sample-app-1.0.0.jar" ]; then
-                          echo "JAR successfully built at: /harness/target/java-sample-app-1.0.0.jar"
-                        else
-                          echo "Error: JAR file not found after build"
-                          exit 1
-                        fi
+                      echo "JAR_PATH=/harness/target/java-sample-app-1.0.0.jar" > <+stage.variables.variableName>
+
+                      echo "<+stage.variables.variableName>"
