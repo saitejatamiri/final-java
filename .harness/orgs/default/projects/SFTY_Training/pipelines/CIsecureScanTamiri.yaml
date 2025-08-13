@@ -94,6 +94,17 @@ pipeline:
                     command: |-
                       ls -a
                       mvn clean package
+              - step:
+                  type: Run
+                  name: Run_5
+                  identifier: Run_5
+                  spec:
+                    shell: Sh
+                    command: |-
+                      JAR_PATH="<+variable.JAR_PATH>"
+                                        
+                                        echo "Built JAR at: $JAR_PATH"
+                                        echo "JAR_PATH=$JAR_PATH" > jar_path.env
   variables:
     - name: JAR_PATH
       type: String
