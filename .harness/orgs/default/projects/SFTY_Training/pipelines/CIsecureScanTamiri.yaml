@@ -101,7 +101,7 @@ pipeline:
                   spec:
                     shell: Sh
                     command: |-
-                      JAR_PATH="<+variable.JAR_PATH>"
+                      JAR_PATH="<+pipeline.variables.JAR_PATH>"
                                         
                                         echo "Built JAR at: $JAR_PATH"
                                         echo "JAR_PATH=$JAR_PATH" > jar_path.env
