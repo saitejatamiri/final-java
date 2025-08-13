@@ -94,6 +94,34 @@ pipeline:
                     command: |-
                       ls -a
                       mvn clean package
-                      echo "JAR_PATH=/harness/target/java-sample-app-1.0.0.jar" > <+stage.variables.variableName>
-
-                      echo "<+stage.variables.variableName>"
+                      echo "JAR_PATH=/harness/target/java-sample-app-<+stage.variables.JAR_VERSION>.jar" > $HARNESS_STEP_OUTPUT
+    - stage:
+        name: output
+        identifier: output
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+            override: false
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Run_1
+                  identifier: Run_1
+                  spec:
+                    shell: Sh
+                    command: |-
+                      JAR_PATH=<+pipeline.stages.build.spec.execution.steps.build_jar.output.JAR_PATH>
+                              
+                              # Debug output
+                              echo "=== Artifact Inspection ==="
+                              echo "Full JAR Path: $JAR_PATH"
