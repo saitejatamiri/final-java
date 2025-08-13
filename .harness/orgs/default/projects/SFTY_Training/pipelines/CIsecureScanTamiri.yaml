@@ -71,11 +71,12 @@ pipeline:
                   spec:
                     shell: Sh
                     command: |-
-                      echo "Account var: "<+variable.account.VARIABLE_NAME>
-                      echo "Org var: "<+variable.org.VARIABLE_NAME>
-                      echo "Project var: " <+variable.VARIABLE_NAME>
-                      echo "Pipeline var: " <+pipeline.variables.VARIABLE_NAME>
-                      echo "Stage var: " <+stage.variables.VARIABLE_NAME>
+                      echo <+pipeline.executionId>        # Output example: 1234-5678-abcd
+                      echo <+pipeline.sequenceId>         # Output example: 16
+                      echo <+stage.name>                  # Output example: dev
+                      echo <+service.name>                # Output example: nginx
+                      echo <+artifacts.primary.image>     # Output example: index.docker.io/library/nginx:stable
+                      echo <+artifacts.primary.imagePath>
               - step:
                   type: Run
                   name: Run_3
@@ -94,17 +95,6 @@ pipeline:
                     command: |-
                       ls -a
                       mvn clean package
-              - step:
-                  type: Run
-                  name: Run_5
-                  identifier: Run_5
-                  spec:
-                    shell: Sh
-                    command: |-
-                      JAR_PATH="<+pipeline.variables.JAR_PATH>"
-                                        
-                                        echo "Built JAR at: $JAR_PATH"
-                                        echo "JAR_PATH=$JAR_PATH" > jar_path.env
   variables:
     - name: JAR_PATH
       type: String
