@@ -94,3 +94,9 @@ pipeline:
                     command: |-
                       ls -a
                       mvn clean package
+  variables:
+    - name: JAR_PATH
+      type: String
+      description: ""
+      required: false
+      value: /harness/target/java-sample-app-1.0.0.jar
