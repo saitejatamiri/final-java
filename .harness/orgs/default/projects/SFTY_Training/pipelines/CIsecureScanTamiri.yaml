@@ -85,8 +85,7 @@ pipeline:
                     shell: Sh
                     command: |-
                       ls -a
-                      #cat gitleaks-report.json
-                      cat /harness/gitleaks-report.json | jq .
+                      cat gitleaks-report.json
               - step:
                   type: Run
                   name: mvn_build
