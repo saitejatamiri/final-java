@@ -66,19 +66,6 @@ pipeline:
                             --exit-code=0
               - step:
                   type: Run
-                  name: Var_test
-                  identifier: Var_test
-                  spec:
-                    shell: Sh
-                    command: |-
-                      echo <+pipeline.executionId>        # Output example: 1234-5678-abcd
-                      echo <+pipeline.sequenceId>         # Output example: 16
-                      echo <+stage.name>                  # Output example: dev
-                      echo <+service.name>                # Output example: nginx
-                      echo <+artifacts.primary.image>     # Output example: index.docker.io/library/nginx:stable
-                      echo <+artifacts.primary.imagePath>
-              - step:
-                  type: Run
                   name: Run_3
                   identifier: Run_3
                   spec:
