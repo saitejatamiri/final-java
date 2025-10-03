@@ -1,0 +1,14 @@
+inputSet:
+  name: tamiri
+  identifier: tamiri
+  orgIdentifier: default
+  projectIdentifier: SFTY_Training
+  pipeline:
+    identifier: CIsecureScanTamiri
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
